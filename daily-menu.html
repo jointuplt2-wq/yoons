@@ -355,7 +355,7 @@ function render(){
   // 어제/오늘/내일만 표시
   function addDays(s,n){var d=new Date(s);d.setDate(d.getDate()+n);return d.getFullYear()+'-'+pad(d.getMonth()+1)+'-'+pad(d.getDate());}
   var show={};
-  show[addDays(t,-1)]=1;show[t]=1;show[addDays(t,1)]=1;
+  show[t]=1;show[addDays(t,1)]=1;show[addDays(t,2)]=1;
   var dates=Object.keys(menuData).filter(function(d){return show[d];}).sort();
   if(!dates.length){em.style.display='block';el.innerHTML='';return;}
   em.style.display='none';el.innerHTML='';
