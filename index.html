@@ -80,7 +80,7 @@ textarea{font-size:16px!important;-webkit-overflow-scrolling:touch}
 .dcard.today .tag{display:block}
 .dc-meal-row{display:flex;align-items:baseline;gap:5px;min-width:0}
 .dc-meal-ic{font-size:.72rem;flex-shrink:0}
-.dc-meal-nm{font-size:.68rem;font-weight:600;color:var(--t2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.dc-meal-nm{font-size:.75rem;font-weight:600;color:var(--t2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .dcard.today .dc-meal-nm{color:rgba(255,255,255,.85)}
 .dcard.today .dc-n,.dcard.today .dc-mo,.dcard.today .dc-wd{color:#fff}
 .dc-ar{position:absolute;right:10px;top:50%;transform:translateY(-50%);font-size:1.2rem;color:var(--t3)}
@@ -97,7 +97,8 @@ textarea{font-size:16px!important;-webkit-overflow-scrolling:touch}
 
 /* MEAL SHEET */
 .sheet{background:#fff;border-radius:28px 28px 0 0;padding:10px 16px calc(28px + var(--sab));width:100%;max-width:520px;transform:translateY(100%);max-height:92vh;overflow-y:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain}
-.handle{width:32px;height:4px;border-radius:2px;background:var(--t3);margin:0 auto 14px}
+.handle-wrap{padding:8px 0 6px;margin:-10px -16px 6px;cursor:grab}
+.handle{width:36px;height:4px;border-radius:2px;background:var(--t3);margin:0 auto}
 .sh-top{display:flex;align-items:flex-end;gap:10px;margin-bottom:14px;padding-bottom:12px;border-bottom:1.5px solid var(--t4)}
 .sh-num{font-size:3.4rem;font-weight:900;line-height:1;color:var(--g1);letter-spacing:-2px;flex-shrink:0}
 .sh-info{padding-bottom:4px}
@@ -216,7 +217,7 @@ textarea{font-size:16px!important;-webkit-overflow-scrolling:touch}
 <!-- MEAL SHEET -->
 <div class="ov" id="mealOv" onclick="if(event.target===this)closeSheet()">
   <div class="sheet" id="sheet">
-    <div class="handle"></div>
+    <div class="handle-wrap"><div class="handle"></div></div>
     <div class="sh-top">
       <div class="sh-num" id="shNum">10</div>
       <div class="sh-info">
@@ -377,7 +378,11 @@ function render(){
       var m=meals[k];
       var its=(menuData[d][m]||[]);
       if(!its.length)continue;
-      var preview=its.slice(0,3).join(' · ')+(its.length>3?' …':'');
+      // 쌀밥/잡곡밥/흰죽 등 고정 주식 제외하고 대표 메뉴만 표시
+      var SKIP=['쌀밥','잡곡밥','흰죽','포기김치','백김치','우유','두유'];
+      var filtered=its.filter(function(x){return!SKIP.some(function(s){return x.indexOf(s)>=0;});});
+      var previewItems=filtered.length?filtered:its;
+      var preview=previewItems.slice(0,2).join(' · ')+(previewItems.length>2?' …':'');
       mealHtml+='<div class="dc-meal-row"><span class="dc-meal-ic">'+mealIcon(m)+'</span><span class="dc-meal-nm">'+preview+'</span></div>';
     }
     if(!mealHtml)mealHtml='<span style="font-size:.68rem;color:var(--t3)">메뉴 없음</span>';
