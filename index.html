@@ -149,7 +149,7 @@ textarea{font-size:16px!important;-webkit-overflow-scrolling:touch}
 .ap-head h2{font-size:1.2rem;font-weight:800;color:var(--t1)}
 .ap-close{width:34px;height:34px;border-radius:50%;background:var(--t3);border:none;font-size:.9rem;font-weight:700;color:var(--t2);cursor:pointer;display:flex;align-items:center;justify-content:center}
 .sec-lbl{font-size:.7rem;font-weight:800;color:var(--t2);letter-spacing:.08em;text-transform:uppercase;margin-bottom:10px}
-.upload-box{background:#fff;border:2px dashed var(--t3);border-radius:20px;padding:34px 20px;text-align:center;cursor:pointer;transition:border-color .2s;margin-bottom:14px}
+.upload-box{display:block;background:#fff;border:2px dashed var(--t3);border-radius:20px;padding:34px 20px;text-align:center;cursor:pointer;transition:border-color .2s;margin-bottom:14px;-webkit-user-select:none;user-select:none}
 .upload-box:hover{border-color:var(--g2)}
 .ub-icon{font-size:2.4rem;margin-bottom:8px}
 .ub-lbl{color:var(--t2);font-size:.9rem}
@@ -276,12 +276,12 @@ textarea{font-size:16px!important;-webkit-overflow-scrolling:touch}
       <button class="ap-close" onclick="closeAdmin()">✕</button>
     </div>
     <div class="sec-lbl">📊 엑셀(xlsx) 메뉴 업로드</div>
-    <div class="upload-box" onclick="document.getElementById('xlsxInput').click()">
+    <label for="xlsxInput" class="upload-box">
       <div class="ub-icon">📊</div>
       <div class="ub-lbl">엑셀 파일을 선택하세요</div>
       <div class="ub-hint">.xlsx 형식 · 날짜/아침/점심/저녁 포함된 메뉴표</div>
-    </div>
-    <input type="file" id="xlsxInput" accept=".xlsx,.xls" onchange="onXlsx(event)"/>
+    </label>
+    <input type="file" id="xlsxInput" accept=".xlsx,.xls,.xlsm" onchange="onXlsx(event)" style="position:absolute;width:1px;height:1px;opacity:0;pointer-events:none"/>
     <input type="file" id="pdfInput" accept=".pdf" onchange="onPdf(event)" style="display:none"/>
     <div class="status-bar" id="statusBar"></div>
     <div class="sec-lbl" style="margin-top:6px">✏️ 텍스트 직접 편집</div>
