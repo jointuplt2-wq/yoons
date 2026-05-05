@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm install *)",
+      "PowerShell(Get-Process *)",
+      "PowerShell($p = Get-Content \"D:\\\\AI 실습\\\\클로드 코드\\\\DONE\\\\node_modules\\\\postcss-import\\\\package.json\" -Raw | ConvertFrom-Json; Write-Host \"postcss-import: $\\($p.version\\)\"; $r = Get-Content \"D:\\\\AI 실습\\\\클로드 코드\\\\DONE\\\\node_modules\\\\resolve\\\\package.json\" -Raw | ConvertFrom-Json; Write-Host \"resolve: $\\($r.version\\)\")",
+      "PowerShell(Get-ChildItem \"D:\\\\AI 실습\\\\클로드 코드\\\\DONE\\\\node_modules\" -Recurse -Filter \"package.json\" -Depth 3 | ForEach-Object { try { $j = Get-Content $_.FullName -Raw | ConvertFrom-Json -ErrorAction Stop; if \\($j.PSObject.Properties.Name -contains 'version' -and [string]::IsNullOrEmpty\\($j.version\\)\\) { $_.FullName } } catch {} } | Select-Object -First 20)"
+    ]
+  }
+}

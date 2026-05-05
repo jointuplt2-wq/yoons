@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <!-- 배경 (둥근 모서리) -->
+  <rect width="512" height="512" rx="112" fill="url(#bg)"/>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="512" y2="512" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#6366f1"/>
+      <stop offset="100%" stop-color="#3b82f6"/>
+    </linearGradient>
+  </defs>
+
+  <!-- 노트 카드 -->
+  <rect x="116" y="108" width="280" height="328" rx="28" fill="white" opacity="0.97"/>
+
+  <!-- 상단 클립 -->
+  <rect x="186" y="90" width="44" height="44" rx="10" fill="#4f46e5"/>
+  <rect x="282" y="90" width="44" height="44" rx="10" fill="#4f46e5"/>
+
+  <!-- 항목 1 (완료) -->
+  <rect x="152" y="175" width="30" height="30" rx="8" fill="#6366f1"/>
+  <polyline points="158,190 165,198 182,178" fill="none" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="198" y="183" width="130" height="13" rx="6" fill="#e0e7ff"/>
+
+  <!-- 항목 2 (완료) -->
+  <rect x="152" y="225" width="30" height="30" rx="8" fill="#6366f1"/>
+  <polyline points="158,240 165,248 182,228" fill="none" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="198" y="233" width="106" height="13" rx="6" fill="#e0e7ff"/>
+
+  <!-- 항목 3 (미완료) -->
+  <rect x="152" y="275" width="30" height="30" rx="8" fill="none" stroke="#c7d2fe" stroke-width="3"/>
+  <rect x="198" y="283" width="140" height="13" rx="6" fill="#f1f5f9"/>
+
+  <!-- 항목 4 (미완료) -->
+  <rect x="152" y="325" width="30" height="30" rx="8" fill="none" stroke="#c7d2fe" stroke-width="3"/>
+  <rect x="198" y="333" width="116" height="13" rx="6" fill="#f1f5f9"/>
+
+  <!-- 하단 선 (반성 영역 암시) -->
+  <rect x="152" y="385" width="208" height="3" rx="2" fill="#e2e8f0"/>
+  <rect x="152" y="400" width="160" height="3" rx="2" fill="#e2e8f0"/>
+</svg>

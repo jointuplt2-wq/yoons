@@ -1,0 +1,18 @@
+{
+  "name": "Daily Planner",
+  "short_name": "Planner",
+  "description": "오늘 할 일, 한 일, 내일 할 일, 반성을 기록하는 일일 플래너",
+  "start_url": "/planner",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#f9fafb",
+  "theme_color": "#6366f1",
+  "icons": [
+    {
+      "src": "/icons/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
